@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Kak zee</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(120deg, #ff9a9e 0%, #fad0c4 100%);
+            font-family: Arial, sans-serif;
+            color: #333;
+            overflow: hidden;
+            animation: gradient 8s ease infinite;
+            background-size: 200% 200%;
+        }
+        .container {
+            text-align: center;
+            max-width: 700px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+        .greeting {
+            font-size: 3em;
+            font-weight: bold;
+            color: #ff4081;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+        .message {
+            font-size: 1.3em;
+            color: #6b7a8f;
+            margin-top: 20px;
+            animation: fadeIn 3s ease-in-out forwards;
+        }
+        .heart {
+            color: #ff4081;
+            font-size: 2em;
+            animation: beat 1s infinite;
+        }
+        .balloons {
+            position: relative;
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            animation: float 6s ease-in-out infinite;
+        }
+        .balloon {
+            width: 60px;
+            height: 80px;
+            background-color: #ff4081;
+            border-radius: 50% 50% 45% 45%;
+            display: inline-block;
+            position: relative;
+            box-shadow: 0 0 10px rgba(255, 64, 129, 0.6);
+            animation: sparkle 1.5s ease-in-out infinite;
+        }
+        .balloon:nth-child(2) { background-color: #ffcc5c; }
+        .balloon:nth-child(3) { background-color: #88d8b0; }
+        
+        /* Animasi Partikel */
+        .particle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: #fff;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: sparkle 5s linear infinite;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        @keyframes sparkle {
+            0%, 100% { box-shadow: 0 0 10px rgba(255, 64, 129, 0.4); }
+            50% { box-shadow: 0 0 20px rgba(255, 64, 129, 0.8); }
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        @keyframes particleMove {
+            0% { opacity: 1; transform: translateY(0) translateX(0); }
+            100% { opacity: 0; transform: translateY(-300px) translateX(-50px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="greeting">Happy Birthday, kakak zee <span class=></span></div>
+        <div class="message">
+            Selamat Ulang Tahun ya kak maaf aku baru tahu jadi ini sengaja aku buatin ucapan dengan cara ku yang aku bisa mungkin ini ga special but aku buat sendiri hehehe,
+            aku buat ini special buat kak zee.
+            <br><br>
+            It's hard to believe we've just met, but it feels like I've known you for a long time. 
+            I think Brother Zee's way of communicating is really cool, that's why I purposely made this statement, I like the delivery and communication when we chatted together during the call, that alone was fun, 
+            especially when we chatted in the same place, right? I'll wait for Monday, <br><br>
+
+            Sekali lagi Selamat ulang tahun, kak zee. Semoga kebahagiaan selalu menyertaimu,
+            dan semua impiannya menjadi kenyataan. Aku senang bisa berkenalan dengan kakak walau itu secara ga sengaja tadi wkwkw.
+        </div>
+        <div class="balloons">
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+        </div>
+    </div>
+
+    <!-- Kelopak Bunga Jatuh -->
+    <script>
+        function createParticle() {
+            const particle = document.createElement("div");
+            particle.classList.add("particle");
+            document.body.appendChild(particle);
+            
+            // Mengatur posisi awal dan animasi
+            particle.style.left = `${Math.random() * 100}vw`;
+            particle.style.top = `${Math.random() * 100}vh`;
+            particle.style.animationDuration = `${Math.random() * 5 + 5}s`;
+            
+            particle.style.transform = `translateX(${Math.random() * 100}px)`;
+
+            setTimeout(() => {
+                particle.remove();
+            }, 8000);
+        }
+
+        setInterval(createParticle, 300); // Buat kelopak baru setiap 300ms
+    </script>
+</body>
+</html>
